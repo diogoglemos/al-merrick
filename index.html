@@ -9,51 +9,58 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-        <title>Channel Islands Surboards</title>
+        <title>Channel Islands Surfboards</title>
+        <link rel="stylesheet" href="stylesheets/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     </head>
     <body>
 
             <!-- CABECALHO -->
 
-        <header>
-            <nav class="nav-bar">
-                <figure> 
-                    <a href="#start"><img class="icon-logo" src="assets/logo.png" alt="Channel Islands logo"></a>
-                </figure>
-
-                <!-- O toggle escondido para o Hamburguer, 
-                 no fundo coloquei um label para o toggle onde fui buscar 
-                 um código hexadecimal do unicode para dar o seu aspeto -->
-
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
-                <label for="menu-toggle" class="menu-icon">&#9776;</label>
-                <div class="overlay">
-                    <ul class="info">
-                        <li><a href="#about">about</a></li>
-                        <li><a href="#models">models</a></li>
-                        <li><a href="#gear">gear</a></li>
-                        <li><a href="#company">company</a></li>
-                    </ul>
+        <header class="main-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="/">
+                        <div class="hexagon-logo">
+                            <div class="hexagon"></div>
+                            <div class="hexagon"></div>
+                            <div class="hexagon"></div>
+                        </div>
+                    </a>
                 </div>
-
-                 <!-- Desktop Navigation -->
-
-                <ul class="main-nav">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#models">Models</a></li>
-                    <li><a href="#gear">Gear</a></li>
-                    <li><a href="#company">Company</a></li>
-                </ul>
-            </nav>
+                
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="/about">ABOUT</a></li>
+                        <li><a href="/models">MODELS</a></li>
+                        <li><a href="/gear">GEAR</a></li>
+                        <li><a href="/company">COMPANY</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="search-lang">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search">
+                        <button type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="language">
+                        <span>EN</span>
+                    </div>
+                </div>
+            </div>
         </header>
         
             <!-- HERO CONTENT -->
 
-        <aside>
-            <figure id="start">
-                <img class="hero-content" src="assets/danereynolds.jpg" alt="Dane Reynolds riding a powerful wave while surfing">
-            </figure>
-        </aside>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>
+                    <span>CHANNEL</span>
+                    <span>ISLANDS</span>
+                    <span>SURFBOARDS</span>
+                </h1>
+            </div>
+        </section>
 
             <!-- CORPO -->
 
@@ -61,20 +68,19 @@
 
             <!-- ABOUT -->
 
-            <section id="about">
-                <h1>ABOUT</h1>
-                <p>CI is a privately held organization focused on rider-driven product and manufacturing the best possible equipment available. Located in a state-of-the-art facility just blocks from Rincon Del Mar, the CI HQ represents a foundation for developing, testing, and building boards while providing jobs in Santa Barbara for many years to come.</p>
-              <figure>
-                <img class="al-merrick-photo" src="assets/Al-Merrick-1980.-Photo-by-Jimmy-Metyko-via-Surfers-Journal-copiar.jpg" alt="Al Merrick standing outdoors, holding a surfboard, photo by Jimmy Metyko, circa 1980">
-              </figure>
-                <span>Al Merrick. Photo: Jimmy Metyko</span>
-              <figure>
-                <img class="quomark1" src="assets/aspa1.svg" alt="left quotation mark">
-              </figure>
-                <p class="special-text">The driving force behind Channel Islands Surfboards is the demand on design created by the world's greatest surfers, allowing for the highest performance surfing possible. To provide the most dedicated surfers with the most advanced, performance designs is my passion - Al Merrick, Designer/Shaper</p>
-              <figure>
-                <img class="quomark2" src="assets/aspa2.svg" alt="right quotation mark">
-              </figure>
+            <section class="about">
+                <div class="container">
+                    <h2>ABOUT</h2>
+                    <div class="about-content">
+                        <p>Since 1969, Channel Islands Surfboards has been dedicated to performance and quality through hard work, innovation, and originality. Over the last 50 years, Channel Islands has grown from a local grass-roots operation to a cutting edge organization, catering to the best surfers in the world. It started with hard-core surfing and quality in mind and these guidelines have brought us through four decades of constant change in the surf industry. Channel Islands will shape the new millennium with innovative design and quality as our main focus.</p>
+                        
+                        <blockquote>
+                            "The driving force behind Channel Islands Surfboards is the demand on design created by the world's greatest surfers, allowing for the highest performance surfing possible. To provide the most dedicated surfers with the most advanced, performance designs is my passion" - Al Merrick, Designer/Shaper
+                        </blockquote>
+                        
+                        <p>CI is a privately held organization focused on rider-driven product and manufacturing the best possible equipment available. Located in a state-of-the art facility just blocks from Rincon Del Mar, the CI HQ represents a foundation for developing, testing, and building boards while providing jobs in Santa Barbara for many years to come.</p>
+                    </div>
+                </div>
             </section>
 
             <!-- MODELS -->
@@ -159,76 +165,63 @@
 
             <!-- FOOTER -->
 
-            <footer class="footer">
-                <div class="footer-line">
-                  <div class="social-icons">
-                    <a href="https://www.facebook.com/cisurfboards/"><img src="assets/facebook.png" alt="Facebook"></a>
-                    <a href="https://www.youtube.com/user/cisurfboards"><img src="assets/youtube.png" alt="YouTube"></a>
-                    <a href="https://www.instagram.com/cisurfboards/"><img src="assets/instagram.png" alt="Instagram"></a>
-                  </div>
+            <footer class="main-footer">
+                <div class="container">
+                    <div class="footer-grid">
+                        <div class="footer-column">
+                            <h3>ABOUT</h3>
+                            <ul>
+                                <li><a href="#">QUOTE</a></li>
+                                <li><a href="#">PHOTO</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h3>MODELS</h3>
+                            <ul>
+                                <li><a href="#">HAPPY</a></li>
+                                <li><a href="#">TWO HAPPY</a></li>
+                                <li><a href="#">HAPPY EVERYDAY</a></li>
+                                <li><a href="#">BIG HAPPY</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h3>GEAR</h3>
+                            <ul>
+                                <li><a href="#">DECKS</a></li>
+                                <li><a href="#">FINS</a></li>
+                                <li><a href="#">LEASHES</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h3>COMPANY</h3>
+                            <ul>
+                                <li><a href="#">HISTORY</a></li>
+                                <li><a href="#">TIMELINE</a></li>
+                                <li><a href="#">STORES</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column newsletter">
+                            <h3>NEWSLETTER</h3>
+                            <p>RECEIVE 10% OF YOUR FIRST PURCHASE</p>
+                            <form class="newsletter-form">
+                                <input type="email" placeholder="Enter your email">
+                                <button type="submit">SUBSCRIBE</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-bottom">
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
                 </div>
-            
-                <div class="footer-top">
-
-                  <!-- About Section -->
-
-                  <div class="footer-column">
-                    <a href="#about"><h3>ABOUT</h3></a>
-                    <ul>
-                      <li>QUOTE</li>
-                      <li>PHOTO</li>
-                    </ul>
-                  </div>
-            
-                  <!-- Models Section -->
-
-                  <div class="footer-column">
-                    <a href="#models"><h3>MODELS</h3></a>
-                    <ul>
-                      <li>HAPPY</li>
-                      <li>TWO HAPPY</li>
-                      <li>HAPPY EVERYDAY</li>
-                      <li>BIG HAPPY</li>
-                    </ul>
-                  </div>
-            
-                  <!-- Gear Section -->
-
-                  <div class="footer-column">
-                    <a href="#gear"><h3>GEAR</h3></a>
-                    <ul>
-                      <li>DECKS</li>
-                      <li>FINS</li>
-                      <li>LEASHES</li>
-                    </ul>
-                  </div>
-            
-                  <!-- Company Section -->
-
-                  <div class="footer-column">
-                    <a href="#company"><h3>COMPANY</h3></a>
-                    <ul>
-                      <li>HISTORY</li>
-                      <li>TIMELINE</li>
-                      <li>STORES</li>
-                    </ul>
-                  </div>
-            
-                  <!-- Newsletter Section -->
-
-                  <div class="newsletter">
-                    <h3>NEWSLETTER</h3>
-                    <p>RECEIVE 10% OF YOUR FIRST PURCHASE</p>
-                    <form>
-                      <input type="email" placeholder="Your email address">
-                      <button type="submit">SUBSCRIBE</button>
-                    </form>
-                  </div>
-                </div>
-            
-                <div class="footer-bottom">
-                  <p>Copyright Al Merrick Surfboards Company &copy;</p>
-                </div>
-              </footer>
+            </footer>
     </body>
 </html>
