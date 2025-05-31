@@ -365,4 +365,155 @@ body {
     .newsletter-form {
         flex-direction: column;
     }
+}
+
+/* Models Page Specific Styles */
+.models-hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.models-hero h1 {
+    position: absolute;
+    color: #fff;
+    font-size: 7rem;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.models-grid {
+    padding: 4rem 0;
+}
+
+.model-category {
+    margin-bottom: 6rem;
+}
+
+.model-category h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.model-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.model-card {
+    position: relative;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.model-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.model-images {
+    position: relative;
+    padding-top: 125%; /* Aspect ratio for images */
+    overflow: hidden;
+}
+
+.model-image,
+.model-detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.model-detail {
+    opacity: 0;
+}
+
+.model-card:hover .model-detail {
+    opacity: 1;
+}
+
+.model-card:hover .model-image {
+    opacity: 0;
+}
+
+.model-info {
+    padding: 1.5rem;
+}
+
+.model-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.model-info p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .models-hero h1 {
+        font-size: 3rem;
+    }
+
+    .model-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .model-category {
+        margin-bottom: 4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .models-hero h1 {
+        font-size: 2rem;
+    }
+
+    .model-info {
+        padding: 1rem;
+    }
+
+    .model-info h3 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.model-card {
+    animation: fadeIn 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.model-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.model-card:nth-child(3) {
+    animation-delay: 0.4s;
 } 
