@@ -1,0 +1,80 @@
+    <header class="main-header">
+        <div class="header-container">
+            <a href="/index.html" class="logo">
+                <img src="src/assets/images/logo.png" alt="Channel Islands Surfboards Logo">
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/about.html">about</a></li>
+                    <li><a href="/models.html">models</a></li>
+                    <li><a href="/gear.html">gear</a></li>
+                    <li><a href="/company.html">company</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="search-toggle">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="lang-toggle">en</button>
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav-overlay">
+            <button class="exit-button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="overlay-content">
+                <nav class="mobile-nav">
+                    <ul>
+                        <li><a href="/about.html">about</a></li>
+                        <li><a href="/models.html">models</a></li>
+                        <li><a href="/gear.html">gear</a></li>
+                        <li><a href="/company.html">company</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+</header>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Grab the DOM elements once the page is fully loaded
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+        const exitButton = document.querySelector('.exit-button');
+        const body = document.body;
+
+        // Function to close the mobile menu
+        const closeMenu = () => {
+            menuToggle.classList.remove('active'); // remove toggle button animation
+            mobileNavOverlay.classList.remove('active'); // hide overlay
+            body.classList.remove('menu-open'); // enable body scroll again
+        };
+
+        // Toggle mobile menu open/close
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active'); // animate toggle button
+            mobileNavOverlay.classList.toggle('active'); // show/hide overlay
+            body.classList.toggle('menu-open'); // prevent scroll
+        });
+
+        // Close menu when clicking the 'X' exit button
+        exitButton.addEventListener('click', closeMenu);
+
+        // Close menu when clicking any link in the mobile menu
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Close menu when clicking outside the content area
+        mobileNavOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileNavOverlay) {
+                closeMenu();
+            }
+        });
+    });
+</script>

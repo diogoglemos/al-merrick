@@ -1,0 +1,176 @@
+.gear-hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.gear-hero h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 7rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    z-index: 2;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+}
+
+.gear-section {
+    padding: 6rem 0;
+    border-bottom: 1px solid var(--accent-color);
+}
+
+.gear-section:last-child {
+    border-bottom: none;
+}
+
+.gear-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.section-intro {
+    max-width: 800px;
+    margin-bottom: 4rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.product-card {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    position: relative;
+    padding-top: 100%; /* 1:1 Aspect ratio */
+    overflow: hidden;
+    background: var(--accent-color);
+}
+
+.product-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform var(--transition-speed);
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.product-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary-color);
+}
+
+.product-info .price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+/* Responsive Styles for Gear Page */
+@media (max-width: 1024px) {
+    .gear-hero .hero-content h1 {
+        font-size: 5rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .gear-hero .hero-content h1 {
+        font-size: 4rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gear-section {
+        padding: 4rem 0;
+    }
+
+    .section-intro {
+        font-size: 1rem;
+        margin-bottom: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gear-hero .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gear-section h2 {
+        font-size: 2rem;
+    }
+
+    .product-info {
+        padding: 1rem;
+    }
+}
+
+/* Animations for Gear Page */
+.product-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+.product-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.product-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.product-card:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 

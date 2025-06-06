@@ -3,137 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/logo.png">
-    <meta name="description" content="Channel Islands Surfboards - High-performance surfboards, boards, fins, and accessories for all surfers.">
-    <link rel="stylesheet" href="stylesheets/styles-company.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <title>Channel Islands Surfboards - Company</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- Google Fonts - Using a clean sans-serif for modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     
-    <!-- Header with sticky navigation -->
+<!-- Header with sticky navigation - Reused from about.html -->
+
     <header class="main-header">
         <div class="header-container">
-            <a href="http://127.0.0.1:3000/index2.html" class="logo">
-                <img src="assets/logo.png" alt="Channel Islands Surfboards Logo in  black">
+            <a href="/index.html" class="logo">
+                <img src="src/assets/images/logo.png" alt="Channel Islands Surfboards Logo">
             </a>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#" class="active">about</a></li>
-                    <li><a href="#">models</a></li>
-                    <li><a href="#">gear</a></li>
-                    <li><a href="#">company</a></li>
+                    <li><a href="/about.html">about</a></li>
+                    <li><a href="/models.html">models</a></li>
+                    <li><a href="/gear.html">gear</a></li>
+                    <li><a href="/company.html">company</a></li>
                 </ul>
             </nav>
 
             <div class="header-actions">
                 <button class="search-toggle">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fas fa-search"></i>
                 </button>
                 <button class="lang-toggle">en</button>
-                <button class="menu-toggle">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav-overlay">
+            <button class="exit-button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="overlay-content">
+                <nav class="mobile-nav">
+                    <ul>
+                        <li><a href="/about.html">about</a></li>
+                        <li><a href="/models.html">models</a></li>
+                        <li><a href="/gear.html">gear</a></li>
+                        <li><a href="/company.html">company</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </header>
+</header>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Grab the DOM elements once the page is fully loaded
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+        const exitButton = document.querySelector('.exit-button');
+        const body = document.body;
 
-    <!-- Mobile Navigation Overlay -->
-    <div class="mobile-nav-overlay">
-        <button class="exit-button">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="overlay-content">
-            <nav class="mobile-nav">
-                <ul>
-                    <li><a href="#" class="active">about</a></li>
-                    <li><a href="#">models</a></li>
-                    <li><a href="#">gear</a></li>
-                    <li><a href="#">company</a></li>
-                </ul>
-            </nav>
+        // Function to close the mobile menu
+        const closeMenu = () => {
+            menuToggle.classList.remove('active'); // remove toggle button animation
+            mobileNavOverlay.classList.remove('active'); // hide overlay
+            body.classList.remove('menu-open'); // enable body scroll again
+        };
+
+        // Toggle mobile menu open/close
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active'); // animate toggle button
+            mobileNavOverlay.classList.toggle('active'); // show/hide overlay
+            body.classList.toggle('menu-open'); // prevent scroll
+        });
+
+        // Close menu when clicking the 'X' exit button
+        exitButton.addEventListener('click', closeMenu);
+
+        // Close menu when clicking any link in the mobile menu
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Close menu when clicking outside the content area
+        mobileNavOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileNavOverlay) {
+                closeMenu();
+            }
+        });
+    });
+</script>
+    <!-- Hero Section with split image background -->
+    <section class="company-hero hero">
+        <div class="hero-content">
+            <figure>
+                <img src="src/assets/images/media/company/Group-42.jpg" alt="Britt Merrick shaping a surfboard" class="hero-image">
+            </figure>
+            <h1>
+                <span>company</span>
+            </h1>
         </div>
-    </div>
+    </section>
 
-    <!-- Main Content -->
-    <main>
-        <section class="hero company-hero">
-            <div class="hero-content">
-                <figure>
-                    <img src="assets/media/company/Group 42.jpg" alt="Split screen picture of vintage Al Merrick portrait to the left and recent Britt Merrick picture to the right. Both of them holding a sanding tool in their hands" class="hero-image">
+    <!-- Passion and Innovation Section -->
+    <section class="company-section passion-section">
+        <div class="container">
+            <h2 id="passion">Passion and innovation</h2>
+            <div class="section-content">
+                <p>
+                    Since 1969, Channel Islands Surfboards has been dedicated to performance and quality through hard work, 
+                    innovation, and originality. Over the last 50 years, Channel Islands has grown from a local grass-roots 
+                    operation to a cutting edge organization, catering to the best surfers in the world. It started with hard-core 
+                    surfing and quality in mind and these guidelines have brought us through four decades of constant change 
+                    in the surf industry. Channel Islands will shape the new millennium with innovative design and quality as our 
+                    main focus.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Generational Handcraft Section -->
+    <section class="company-section handcraft-section">
+        <div class="container">
+            <h2 id="handcraft">Generational handcraft</h2>
+            <div class="section-content">
+                <p>
+                    Channel Islands Surfboards was created by Al and Terry Merrick in 1969. From his birth, Britt spent his days 
+                    in the factory by the beach in Santa Barbara, from toddling around blanks to sweeping out shaping rooms. 
+                    Eventually he started shaping alongside his father Al in 1990. He is now the lead shaper and designer for CI 
+                    and carries on the family tradition of developing high performance board designs collaborating with the 
+                    world's greatest surfers. From Tom Curren, to Dane Reynolds, Channel Islands continues to evolve with the 
+                    highest standard of surfing.
+                </p>
+                <figure class="handcraft-image">
+                    <img src="src/assets/images/media/company/Al-Merrick-1980.-Photo-by-Jimmy-Metyko-via-Surfers-Journal-copiar.jpg" alt="Surfboard shaping process">
                 </figure>
-                <h1>
-                    <span>company</span>
-                </h1>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="passion">
-            <h2>Passion and innovation</h2>
-            <div class="content">
-                <p>Since 1969, Channel Islands Surfboards has been dedicated to performance and quality through out-of-work innovation, and originality. Over the last 50 years, Channel Islands has grown from a local garage-made operation to a worldwide leader in surfboard manufacturing and design. The company continues to drive innovation in surfing and quality in mind and these guidelines have brought us through four decades of constant change in the surf industry. Channel remains and shape the new millennium with innovative design and quality as our main focus.</p>
-                <div class="image-grid">
-                    <img src="assets/media/company/britt-merrick-and-peter-mel.jpg" alt="Peter Mel and Britt Merrick discussing a surfboard design in the shaping room with a surboard in between them" class="main-image">
-                    <div class="small-images">
-                        <img src="assets/media/about/2. grid/tom-curren.jpg" alt="Vintage picture of Tom Curren performing a frontside bottom turn in a clear water wave">
-                        <img src="assets/media/about/2. grid/kelly-slater.jpg" alt="Kelly slater holdind a CI surboard in his left shoulder looking at the camera while touching his index finger to his head">
-                        <img src="assets/media/about/2. grid/dane-reynolds-solto-e-ágil-nas-ondas-de-duranbah.JPG" alt="Dane Reynolds performing a frontside tail high air in mushy Duranbah beach waves">
-                    </div>
-                </div>
+    <!-- Gallery Section -->
+    <section class="company-gallery">
+        <div class="container">
+            <div class="gallery-grid">
+                <figure class="gallery-item">
+                    <img src="src/assets/images/media/company/image-15.jpg" alt="Surfboard shaping process">
+                </figure>
+                <figure class="gallery-item">
+                    <img src="src/assets/images/media/company/image-16.jpg" alt="Surfboard finishing">
+                </figure>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="handcraft">
-            <h2>Generational handcraft</h2>
-            <div class="content">
-                <p>Channel Islands Surfboards was created by Al and Terry Merrick in 1969. From his birth, Al's spent his days in the factory by his board in Santa Barbara. From building model planes to constructing surf shop displays, he learned from his father how to build things with his hands. Through the years, Al has maintained the family tradition of developing high performance board designs collaborating with the world's best surfers like Tom Curren, to Jake Reynolds. Channel Islands continues to evolve with the highest standard of quality.</p>
-                <div class="image-grid">
-                    <img src="assets/media/company/Al-Merrick-1980.-Photo-by-Jimmy-Metyko-via-Surfers-Journal copiar.jpg" alt="Black an white vintage picture of Al Merrick with a surfboard in his hand staring at the camera" class="main-image">
-                    <div class="workshop-images">
-                        <img src="assets/media/company/image 15.jpg" alt="Black an white picture of Britt Merrick sanding a surfboard in his shaping room">
-                        <img src="assets/media/company/image 16.jpg" alt="Black an white picture of CI Shaper finishing a surfboard in the shaping room">
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- Footer Section - Reused from about.html -->
 
-    <!-- Footer -->
-    <footer class="main-footer">
+<footer class="main-footer">
+    <div class="container">
         <div class="footer-grid">
-            <div class="nav-column">
-                <h3>about</h3>
-                <ul>
-                    <li><a href="#">overview</a></li>
-                    <li><a href="#">get to know more</a></li>
-                </ul>
+            <!-- Navigation Links -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <a href="/about.html"><h3>about</h3></a>
+                    <ul>
+                        <li><a href="/about.html#quote">quote</a></li>
+                    </ul>
+                </div>
+                <div class="nav-column">
+                    <a href="/models.html"><h3>models</h3></a>
+                    <ul>
+                        <li><a href="/models.html#happy">happy</a></li>
+                        <li><a href="/models.html#two-happy">two happy</a></li>
+                        <li><a href="/models.html#happy-everyday">happy everyday</a></li>
+                    </ul>
+                </div>
+                <div class="nav-column">
+                    <a href="/gear.html"><h3>gear</h3></a>
+                    <ul>
+                        <li><a href="/gear.html#trackpads">trackpads</a></li>
+                        <li><a href="/gear.html#fins">fins</a></li>
+                        <li><a href="/gear.html#leashes">leashes</a></li>
+                    </ul>
+                </div>
+                <div class="nav-column">
+                    <a href="/company.html"><h3>company</h3></a>
+                    <ul>
+                        <li><a href="/company.html#passion">passion</a></li>
+                        <li><a href="/company.html#handcraft">handcraft</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="nav-column">
-                <h3>models</h3>
-                <ul>
-                    <li><a href="#">happy</a></li>
-                    <li><a href="#">two happy</a></li>
-                    <li><a href="#">happy everyday</a></li>
-                </ul>
-            </div>
-            <div class="nav-column">
-                <h3>gear</h3>
-                <ul>
-                    <li><a href="#">decks</a></li>
-                    <li><a href="#">fins</a></li>
-                    <li><a href="#">leashes</a></li>
-                </ul>
-            </div>
-            <div class="nav-column">
-                <h3><a href="http://127.0.0.1:3000/company.html">company</a></h3>
-                <ul>
-                    <li><a href="#">passion and innovation</a></li>
-                    <li><a href="#">generational handcraft</a></li>
-                </ul>
-            </div>
+
+            <!-- Newsletter Signup -->
             <div class="newsletter">
                 <h3>newsletter</h3>
                 <p>get 10% off your first purchase</p>
@@ -141,23 +203,16 @@
                     <input type="email" placeholder="Enter your email" required>
                     <button type="submit">subscribe</button>
                 </form>
-                <div class="social-media">
-                    <h3>follow us</h3>
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/cisurfboards" target="_blank" aria-label="Visit our Facebook page">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="https://www.instagram.com/cisurfboards/" target="_blank" aria-label="Visit our Instagram page">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@cisurfboards" target="_blank" aria-label="Visit our YouTube channel">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
-                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://www.facebook.com/cisurfboards" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/user/cisurfboards" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="http://instagram.com/cisurfboards" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
-    </footer>
-    <script src="script.js"></script>
+    </div>
+</footer>
 </body>
 </html> 

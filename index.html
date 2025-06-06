@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/logo.png">
-    <meta name="description" content="Channel Islands Surfboards - High-performance surfboards, boards, fins, and accessories for all surfers.">
-    <link rel="stylesheet" href="stylesheets/styles-index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <title>Channel Islands Surfboards</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Channel Islands Surfboards</title>
+        <link rel="stylesheet" href="/assets/css/main.css">
+        <!-- Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
 <body>
     
     <!-- Header with sticky navigation -->
+ 
     <header class="main-header">
         <div class="header-container">
-            <a href="http://127.0.0.1:3000/index.html" class="logo">
-                <img src="assets/logo.png" alt="Channel Islands Surfboards Logo in black">
-            </a>                  
+            <a href="/index.html" class="logo">
+                <img src="src/assets/images/logo.png" alt="Channel Islands Surfboards Logo">
+            </a>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="/about.html" class="active">about</a></li>
+                    <li><a href="/about.html">about</a></li>
                     <li><a href="/models.html">models</a></li>
                     <li><a href="/gear.html">gear</a></li>
                     <li><a href="/company.html">company</a></li>
@@ -31,38 +28,75 @@
 
             <div class="header-actions">
                 <button class="search-toggle">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fas fa-search"></i>
                 </button>
                 <button class="lang-toggle">en</button>
-                <button class="menu-toggle">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        <!-- Mobile Navigation Overlay -->
+        <div class="mobile-nav-overlay">
+            <button class="exit-button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="overlay-content">
+                <nav class="mobile-nav">
+                    <ul>
+                        <li><a href="/about.html">about</a></li>
+                        <li><a href="/models.html">models</a></li>
+                        <li><a href="/gear.html">gear</a></li>
+                        <li><a href="/company.html">company</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </header>
+</header>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Grab the DOM elements once the page is fully loaded
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+        const exitButton = document.querySelector('.exit-button');
+        const body = document.body;
 
-     <!-- Mobile Navigation Overlay -->
-     <div class="mobile-nav-overlay">
-        <button class="exit-button">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <div class="overlay-content">
-            <nav class="mobile-nav">
-                <ul>
-                    <li><a href="/about.html" class="active">about</a></li>
-                    <li><a href="/models.html">models</a></li>
-                    <li><a href="/gear.html">gear</a></li>
-                    <li><a href="/company.html">company</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+        // Function to close the mobile menu
+        const closeMenu = () => {
+            menuToggle.classList.remove('active'); // remove toggle button animation
+            mobileNavOverlay.classList.remove('active'); // hide overlay
+            body.classList.remove('menu-open'); // enable body scroll again
+        };
 
+        // Toggle mobile menu open/close
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active'); // animate toggle button
+            mobileNavOverlay.classList.toggle('active'); // show/hide overlay
+            body.classList.toggle('menu-open'); // prevent scroll
+        });
+
+        // Close menu when clicking the 'X' exit button
+        exitButton.addEventListener('click', closeMenu);
+
+        // Close menu when clicking any link in the mobile menu
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Close menu when clicking outside the content area
+        mobileNavOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileNavOverlay) {
+                closeMenu();
+            }
+        });
+    });
+</script>
     <!-- Main Content -->
     <main>
         <!-- Hero Section -->
-        <section class="hero">
-            <img src="assets/danereynolds.jpg" alt="Dane Reynolds performing a frontside grab rail carve in a clear water wave" class="hero-img">
+        <section class="index-hero hero">
+            <img src="src/assets/images/danereynolds.jpg" alt="Dane Reynolds performing a frontside grab rail carve in a clear water wave" class="hero-img">
         </section>
 
         <!-- Overview Section -->
@@ -75,23 +109,26 @@
             <h2>Get to know more</h2>
             <div class="card-grid">
                 <article class="card">
-                    <img src="assets/media/about/1-banner/Britt-Sanding.jpg" alt="Black an white picture of Britt Merrick sanding a surfboard in his shaping room">
-                    <a href="/about.html"></a>
-                    <h3>about</h3>
+                    <a href="/about.html">
+                        <img src="src/assets/images/media/about/1-banner/Britt-Sanding.jpg" alt="Black an white picture of Britt Merrick sanding a surfboard in his shaping room">
+                        <h3>about</h3>
+                    </a>
                 </article>
                 <article class="card">
-                    <img src="assets/media/models/1-banner/Happy-model-channel-islands-surfboards-southafrica-FebQuiver_16_Web.jpg" alt="Black an white picture of Mike February holding a CI Happy model with his left hand in front of a wall with two other happy surfboards on his right side">
-                    <a href="/models.html"></a>
-                    <h3>models</h3>
+                    <a href="/models.html">
+                        <img src="src/assets/images/media/models/1-banner/Happy-model-channel-islands-surfboards-southafrica-FebQuiver_16_Web.jpg" alt="Black an white picture of Mike February holding a CI Happy model with his left hand in front of a wall with two other happy surfboards on his right side">
+                        <h3>models</h3>
+                    </a>
                 </article>
                 <article class="card">
-                    <img src="assets/media/gear/1-banner/Frame-49.jpg" alt="Black an white picture of a twin fin surfboard leaning on the wall with focus on the futures CI twin fins detail">
-                    <a href="/gear.html"></a>
-                    <h3>gear</h3>
+                    <a href="/gear.html">
+                        <img src="src/assets/images/media/gear/1-banner/Frame-49-2.jpg" alt="Black an white picture of a twin fin surfboard leaning on the wall with focus on the futures CI twin fins detail">
+                        <h3>gear</h3>
+                    </a>
                 </article>
                 <article class="card">
                     <a href="/company.html">
-                        <img src="assets/Al-Merrick-1980.-Photo-by-Jimmy-Metyko-via-Surfers-Journal-copiar.jpg" alt="Black an white vintage picture of Al Merrick with a surfboard in his hand staring at the camera">
+                        <img src="src/assets/images/media/company/Al-Merrick-1980.-Photo-by-Jimmy-Metyko-via-Surfers-Journal-copiar.jpg" alt="Black an white vintage picture of Al Merrick with a surfboard in his hand staring at the camera">
                         <h3>company</h3>
                     </a>
                 </article>
@@ -100,38 +137,43 @@
     </main>
 
     <!-- Footer -->
-    <footer class="main-footer">
+<footer class="main-footer">
+    <div class="container">
         <div class="footer-grid">
-            <div class="nav-column">
-                <h3>about</h3>
-                <ul>
-                    <li><a href="#">overview</a></li>
-                    <li><a href="#">get to know more</a></li>
-                </ul>
+            <!-- Navigation Links -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <a href="/about.html"><h3>about</h3></a>
+                    <ul>
+                        <li><a href="/about.html#quote">quote</a></li>
+                    </ul>
+                </div>
+                <div class="nav-column">
+                    <a href="/models.html"><h3>models</h3></a>
+                    <ul>
+                        <li><a href="/models.html#happy">happy</a></li>
+                        <li><a href="/models.html#two-happy">two happy</a></li>
+                        <li><a href="/models.html#happy-everyday">happy everyday</a></li>
+                    </ul>
+                </div>
+                <div class="nav-column">
+                    <a href="/gear.html"><h3>gear</h3></a>
+                    <ul>
+                        <li><a href="/gear.html#trackpads">trackpads</a></li>
+                        <li><a href="/gear.html#fins">fins</a></li>
+                        <li><a href="/gear.html#leashes">leashes</a></li>
+                    </ul>
+                </div>
+                <div class="nav-column">
+                    <a href="/company.html"><h3>company</h3></a>
+                    <ul>
+                        <li><a href="/company.html#passion">passion</a></li>
+                        <li><a href="/company.html#handcraft">handcraft</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="nav-column">
-                <h3>models</h3>
-                <ul>
-                    <li><a href="#">happy</a></li>
-                    <li><a href="#">two happy</a></li>
-                    <li><a href="#">happy everyday</a></li>
-                </ul>
-            </div>
-            <div class="nav-column">
-                <h3>gear</h3>
-                <ul>
-                    <li><a href="#">decks</a></li>
-                    <li><a href="#">fins</a></li>
-                    <li><a href="#">leashes</a></li>
-                </ul>
-            </div>
-            <div class="nav-column">
-                <h3><a href="http://127.0.0.1:3000/company.html">company</a></h3>
-                <ul>
-                    <li><a href="#">passion and innovation</a></li>
-                    <li><a href="#">generational handcraft</a></li>
-                </ul>
-            </div>
+
+            <!-- Newsletter Signup -->
             <div class="newsletter">
                 <h3>newsletter</h3>
                 <p>get 10% off your first purchase</p>
@@ -140,23 +182,15 @@
                     <button type="submit">subscribe</button>
                 </form>
             </div>
-            <div class="social-media">
-                <h3>follow us</h3>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/cisurfboards" target="_blank" aria-label="Visit our Facebook page">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://www.instagram.com/cisurfboards/" target="_blank" aria-label="Visit our Instagram page">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@cisurfboards" target="_blank" aria-label="Visit our YouTube channel">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://www.facebook.com/cisurfboards" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/user/cisurfboards" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="http://instagram.com/cisurfboards" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
-    </footer>
-    <script src="script.js"></script>
-    
+    </div>
+</footer>
 </body>
 </html>
